@@ -3,6 +3,7 @@ const cors = require("cors")
 const dotenv = require('dotenv')
 const connectDB = require("./config/db");
 const products = require("./routes/productRoutes")
+const auth = require("./routes/authRoutes")
 const errorMiddleWare = require("./Middleware/errorMiddleWare")
 const path = require("path")
 const app = express()
@@ -18,6 +19,8 @@ app.get('/',(req,res)=>{
 
 // Api calls 
 app.use("/api/v1", products);
+app.use("/api/v1", auth);
+
 
 // middlewares
 app.use(errorMiddleWare);
