@@ -5,7 +5,11 @@ const APIFeatures = require("../utils/apiFeatures")
 
 // get all products
 exports.getProducts = async(req,res, next)=> {
- const apiFeatures = new APIFeatures(Products.find(), req.query).search();
+  let resPerPage = 2;
+ const apiFeatures = new APIFeatures(Products.find(), req.query)
+   .search()
+   .filter()
+   .paginate(resPerPage);
 
 const products= await apiFeatures.query
 res.status(200).json({
