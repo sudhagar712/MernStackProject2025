@@ -1,6 +1,7 @@
 const User = require("../models/userModel")
 
 
+
 // Register Api 
 
 exports.registerapi = async(req,res)=>{
@@ -33,7 +34,25 @@ exports.registerapi = async(req,res)=>{
     } catch (error) {
         res.status(500).json({message:"Internal server Error"})
         
-    }
-   
-
+    }  
 }
+
+
+// Login api...
+exports.loginApi = async(req,res)=>{
+    try {
+        const existingUser = await User.findOne({email})
+        if(!existingUser){
+            res.status(404).json({
+                message:"User not resgistered"
+            })
+            const comparePassword = await 
+        }
+        
+    } catch (error) {
+        
+    }
+}
+
+
+
