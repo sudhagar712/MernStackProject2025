@@ -1,30 +1,4 @@
-         if(existingUser){
-            return res.status(400).json({
-                message:"User already exists"
-            })
-         }
-
-
-        const user =  await User.create({
-            name,
-            password,
-            email,
-            avatar
-         })
-         
-        const savedUser =  await user.save()
-         res
-           .status(201)
-           .json({
-             message: "User created successfully",
-             savedUser
-           });
-        
-    } catch (error) {
-        res.status(500).json({message:"Internal server Error"})
-        
-    }  
-const User = require("../models/userModel");
+ const User = require("../models/userModel");
 const sendToken = require("../utils/jwt");
 
 // Register API
