@@ -86,6 +86,7 @@ exports.deleteproduct = async (req, res) => {
 
 exports.newProducts = async(req,res) => {
     try {
+          req.body.user = req.user.id
          const product = await Products.create(req.body)
     res.status(201).json({
         success:true,

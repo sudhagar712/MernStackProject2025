@@ -6,10 +6,12 @@ const products = require("./routes/productRoutes")
 const auth = require("./routes/authRoutes")
 const errorMiddleWare = require("./Middleware/errorMiddleWare")
 const path = require("path")
+const cookieParser = require("cookie-parser");
 const app = express()
 
 dotenv.config({path: path.join(__dirname,"config/config.env")})
 app.use(express.json())
+app.use(cookieParser());
 app.use(cors())
 
 // sample code 
